@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="DR.barber - قصات شعر احترافية وأناقة تليق بك">
+  <title>DR.barber | قصّ، أناقة، ثقة</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0b0b0b;
+      --panel: #151515;
+      --gold: #d4aa60;
+      --white: #f8f3e9;
+      --muted: #bdb5a8;
+      --green: #159b55;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "Cairo", Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid #29251d;
+      background: #0b0b0b;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 800;
+      direction: ltr;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: #15110a;
+      font-weight: 800;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.1);
+    }
+
+    .hero {
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .hero-label {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.35;
+      margin: 15px 0;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .hero-image {
+      min-height: 390px;
+      border: 1px solid #5b4729;
+      border-radius: 180px 180px 20px 20px;
+      background:
+        linear-gradient(to top, #080808 0%, transparent 65%),
+        radial-gradient(ellipse at center, #604522 0%, #211a11 40%, #111 75%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .hero-image .scissors {
+      color: var(--gold);
+      font-size: 100px;
+    }
+
+    .hero-image h2 {
+      color: var(--white);
+      font-size: 25px;
+      margin-top: 10px;
+    }
+
+    .hero-image p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 span {
+      color: var(--gold);
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--panel);
+      border: 1px solid #393022;
+      border-radius: 15px;
+      padding: 28px 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 38px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-art {
+      min-height: 280px;
+      border-radius: 20px;
+      border: 1px solid #493a24;
+      background: radial-gradient(circle, #46351d, #17140f 65%, #0b0b0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 90px;
+      color: var(--gold);
+    }
+
+    .about h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .about h2 span {
+      color: var(--gold);
+    }
+
+    .about p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .contact {
+      background: linear-gradient(120deg, #1d1912, #111);
+      border-top: 1px solid #493a24;
+      border-bottom: 1px solid #493a24;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      border-radius: 30px;
+      padding: 13px 25px;
+      font-weight: 800;
+      transition: 0.3s;
+    }
+
+    .whatsapp-button:hover {
+      background: #18b763;
+      transform: translateY(-3px);
+    }
+
+    .facebook-button {
+      display: inline-block;
+      background: #1877f2;
+      color: white;
+      border-radius: 30px;
+      padding: 13px 25px;
+      font-weight: 800;
+      transition: 0.3s;
+    }
+
+    .facebook-button:hover {
+      background: #0d65d9;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--gold);
+      font-size: 22px;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    footer p {
+      margin-top: 5px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+        gap: 30px;
+      }
+
+      .hero-image {
+        min-height: 300px;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 450px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      nav > .button {
+        padding: 9px 13px;
+        font-size: 12px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .contact h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- رأس الصفحة -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">
+          DR.barber
+          <span>CUT • STYLE • CONFIDENCE</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#home">الرئيسية</a>
+          <a href="#services">خدماتنا</a>
+          <a href="#about">من نحن</a>
+          <a href="#contact">تواصل معنا</a>
+        </div>
+
+        <a href="#contact" class="button">احجز موعدك</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- الواجهة الرئيسية -->
+    <section class="container hero" id="home">
+      <div>
+        <div class="hero-label">DR.BARBER — أناقة تليق بك</div>
+
+        <h1>
+          إطلالة أرقى...<br>
+          <span>بلمسة احترافية</span>
+        </h1>
+
+        <p>
+          قصّات شعر عصرية، تحديد لحية متقن،
+          واهتمام بالتفاصيل لتظهر بأفضل إطلالة.
+        </p>
+
+        <a href="#contact" class="button">احجز موعدك الآن ✦</a>
+      </div>
+
+      <div class="hero-image">
+        <div>
+          <div class="scissors">✂</div>
+          <h2>قصّ • أناقة • ثقة</h2>
+          <p>تفاصيل دقيقة تصنع الفرق</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section class="container" id="services">
+      <div class="section-title">
+        <h2>خدمات <span>DR.barber</span></h2>
+        <p>كل ما تحتاجه لإطلالة مرتبة وأنيقة</p>
+      </div>
+
+      <div class="services">
+        <article class="service-card">
+          <div class="service-icon">✂</div>
+          <h3>قص الشعر</h3>
+          <p>قصّات كلاسيكية وعصرية تناسب أسلوبك.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">♟</div>
+          <h3>تحديد اللحية</h3>
+          <p>تشذيب دقيق وخطوط مرتبة باحترافية.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">◈</div>
+          <h3>حلاقة متكاملة</h3>
+          <p>عناية متناسقة تمنحك مظهرًا أنيقًا.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✧</div>
+          <h3>تصفيف الشعر</h3>
+          <p>اللمسة النهائية التي تكمل إطلالتك.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- من نحن -->
+    <section class="container" id="about">
+      <div class="about">
+        <div class="about-art">✂</div>
+
+        <div>
+          <h2>من نحن في <span>DR.barber</span>؟</h2>
+
+          <p>
+            نؤمن أن الحلاقة ليست مجرد قصّ شعر،
+            بل تجربة متكاملة تعتمد على الذوق والدقة
+            والاهتمام بكل تفصيل.
+          </p>
+
+          <p>
+            هدفنا مساعدتك على اختيار إطلالة تناسبك
+            وتمنحك شعورًا بالراحة والثقة.
+          </p>
+
+          <a href="#contact" class="button">تواصل معنا</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- التواصل -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>جاهز لإطلالة <span>جديدة؟</span></h2>
+          <p>تواصل معنا واحجز موعدك</p>
+        </div>
+
+        <div class="contact-buttons">
+
+          <!-- ضع رابط واتساب مكان # أدناه -->
+          <a
+            href="https://wa.me/963983271631"
+            class="whatsapp-button"
+            id="whatsapp-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ☎ تواصل عبر واتساب
+          </a>
+
+          <!-- ضع رابط صفحة فيسبوك مكان # أدناه -->
+          <a
+            href="#"
+            class="facebook-button"
+            id="facebook-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            f تابعنا على فيسبوك
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- تذييل الصفحة -->
+  <footer>
+    <div class="container">
+      <strong>DR.barber</strong>
+      <p>قصّ • أناقة • ثقة</p>
+      <p>© <span id="year"></span> DR.barber — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script>
+    // تحديث السنة تلقائيًا
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // الروابط غير مضافة بعد: تظهر رسالة حتى لا تنتقل الأزرار إلى #
+    document.getElementById("whatsapp-link").addEventListener("click", function(event) {
+      if (this.getAttribute("href") === "#") {
+        event.preventDefault();
+        alert("أضف رابط واتساب الخاص بك لتفعيل الزر.");
+      }
+    });
+
+    document.getElementById("facebook-link").addEventListener("click", function(event) {
+      if (this.getAttribute("href") === "#") {
+        event.preventDefault();
+        alert("أضف رابط صفحة فيسبوك الخاصة بك لتفعيل الزر.");
+      }
+    });
+  </script>
+
+</body>
+</html>
